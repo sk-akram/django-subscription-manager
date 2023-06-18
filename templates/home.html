@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription For Newsletter</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background-color: #f4f4f4;
+        }
+        
+        .container {
+          max-width: 500px;
+          padding: 40px;
+          border: 2px solid #3498db;
+          border-radius: 10px;
+          background-color: #fff;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container h2 {
+          text-align: center;
+          margin-bottom: 30px;
+          color: #3498db;
+        }
+        
+        .form-group {
+          margin-bottom: 30px;
+        }
+        
+        .form-group label {
+          display: block;
+          font-weight: bold;
+          margin-bottom: 10px;
+          color: #555;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="submit"] {
+          width: 100%;
+          padding: 12px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+        
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus {
+          border-color: #3498db;
+          outline: none;
+        }
+        
+        .form-group input[type="submit"] {
+          background-color: #3498db;
+          color: #fff;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+        
+        .form-group input[type="submit"]:hover {
+          background-color: #2980b9;
+        }
+        
+        @media (max-width: 500px) {
+          .container {
+            max-width: 90%;
+          }
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h2>Subscription Form</h2>
+        <form action="/subscribe" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Subscribe">
+          </div>
+        </form>
+      </div>
+    </body>
+    </html>
